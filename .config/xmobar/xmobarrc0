@@ -35,16 +35,12 @@ Config { font            = "xft:Mononoki Nerd Font:weight=bold:pixelsize=12:anti
                     , Run Brightness ["-t", "BRIGHT: <percent>%", 
                                       "--",
                                       "-D", "/sys/class/backlight/intel_backlight"] 1
-                    , Run Volume "default" "Master" ["-t", "VOL: <volume>% <status>"] 1
                         -- Script that dynamically adjusts xmobar padding depending on number of trayer icons.
-                    , Run Com "$HOME/.config/xmobar/scripts/trayer-padding-icon.sh" [] "trayerpad" 20
-                        -- Prints out the left side items such as workspaces, layout, etc.
-                    , Run Wireless "wlo1" ["-t", "WIFI: <quality>% (<ssid>)"] 60
-                    , Run Com "whoami" [] "user" 3600
+                    , Run Com "/home/lektor/.config/xmobar/scripts/trayer-padding-icon.sh" [] "trayerpad" 10
                     , Run Kbd [("ru", "RU"), ("us", "US")]
                     , Run UnsafeStdinReader
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = " <icon=haskell_20.xpm/> <fc=#666666>|</fc> %UnsafeStdinReader% }{ <box type=Bottom width=2 mb=2 color=#C7C7C7><fc=#EFEFEF><action=`termite -e bpytop`>%multicoretemp%</action></fc></box>  <box type=Bottom width=2 mb=2 color=#C7C7C7><fc=#EFEFEF><action=`termite -e bpytop`>%cpu%</action></fc></box>  <box type=Bottom width=2 mb=2 color=#C7C7C7><fc=#EFEFEF><action=`alacritty -e htop`>%memory%</action></fc></box>  <box type=Bottom width=2 mb=2 color=#C7C7C7><fc=#EFEFEF>%bright%</fc></box>  <box type=Bottom width=2 mb=2 color=#C7C7C7><fc=#EFEFEF><action=`alacritty -e htop`>%default:Master%</action></fc></box>  <box type=Bottom width=2 mb=2 color=#C7C7C7><fc=#EFEFEF>%baticon% %battery%</fc></box>  <box type=Bottom width=2 mb=2 color=#C7C7C7><fc=#EFEFEF>%date%</fc></box>  <box type=Bottom width=2 mb=2 color=#C7C7C7><action=`rofi-wifi-menu`><fc=#EFEFEF>%wlo1wi%</fc></action></box>  <box type=Bottom width=2 mb=2 color=#C7C7C7><fc=#EFEFEF>%kbd%</fc></box>  <box type=Bottom width=2 mb=2 color=#C7C7C7><fc=#EFEFEF>%user%</fc></box> "
-       }
+       , template = " <icon=haskell_20.xpm/> <fc=#666666>|</fc> %UnsafeStdinReader% }{ <box type=Bottom width=2 mb=2 color=#C7C7C7><fc=#EFEFEF><action=`termite -e bpytop`>%multicoretemp%</action></fc></box>  <box type=Bottom width=2 mb=2 color=#C7C7C7><fc=#EFEFEF><action=`termite -e bpytop`>%cpu%</action></fc></box>  <box type=Bottom width=2 mb=2 color=#C7C7C7><fc=#EFEFEF><action=`termite -e htop`>%memory%</action></fc></box>  <box type=Bottom width=2 mb=2 color=#C7C7C7><fc=#EFEFEF>%bright%</fc></box>  <box type=Bottom width=2 mb=2 color=#C7C7C7><fc=#EFEFEF><action=`xfce4-power-manager-settings`>%baticon% %battery%</action></fc></box>  <box type=Bottom width=2 mb=2 color=#C7C7C7><fc=#EFEFEF>%date%</fc></box>  <box type=Bottom width=2 mb=2 color=#C7C7C7><fc=#EFEFEF>%kbd%</fc></box>  %trayerpad%"
+      }
