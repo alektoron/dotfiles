@@ -33,6 +33,8 @@ Config {
         ] [] 60
         -- Check for pacman updates (script found in .local/bin)
         , Run Com "tool/pacupdate" [] "pacupdate" 36000
+        , Run Com ".config/xmobar/scripts/gpu_temp.sh" [] "gpu_temp" 10
+        , Run Com ".config/xmobar/scripts/gpu_usage.sh" [] "gpu_usage" 10
         -- Echos a "battery" icon in front of the pacman updates.
         , Run Com "echo" ["<fn=2>\xf242</fn>"] "baticon" 3600
         , Run Kbd [("ru", "<box type=Bottom width=2 mb=2 color=#f3f6f4><fc=#f3f6f4>RU</fc></box>"), ("us", "<box type=Bottom width=2 mb=2 color=#f3f6f4><fc=#f3f6f4>US</fc></box>")]
@@ -50,5 +52,5 @@ Config {
     ]
     , sepChar = "%"
     , alignSep = "}{"
-    , template = " %UnsafeStdinReader% }{ <box type=Bottom width=2 mb=2 color=#A3BE8C><fc=#A3BE8C><action=`alacritty -e htop`>CPU: %cpu% %multicoretemp%</action></fc></box>   %memory%   %disku%   <box type=Bottom width=2 mb=2 color=#88C0D0><fc=#88C0D0><action=`alacritty -e sudo pacman -Syu`>%pacupdate%</action></fc></box>   %bright%   %battery%   %kbd%   %date% "
+    , template = " %UnsafeStdinReader% }{ <box type=Bottom width=2 mb=2 color=#A3BE8C><fc=#A3BE8C><action=`alacritty -e htop`>CPU: %cpu% %multicoretemp%</action></fc></box>  %gpu_temp%   %memory% %gpu_usage%  %disku%   <box type=Bottom width=2 mb=2 color=#88C0D0><fc=#88C0D0><action=`alacritty -e sudo pacman -Syu`>%pacupdate%</action></fc></box>   %bright%   %battery%   %kbd%   %date% "
 }
