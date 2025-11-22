@@ -1,0 +1,90 @@
+icons_format = "{icon}"
+
+[theme]
+theme = "solarized-dark"
+[theme.overrides]
+idle_bg = "#123456"
+idle_fg = "#abcdef"
+
+[icons]
+icons = "awesome4"
+[icons.overrides]
+bat = ["|E|", "|_|", "|=|", "|F|"]
+bat_charging = "|^| "
+
+[[block]]
+block = "focused_window"
+[block.format]
+full = " $title.str(max_w:30) |"
+short = " $title.str(max_w:10) |"
+
+[[block]]
+block = "github"
+format = " $icon $total.eng(w:1)|$mention.eng(w:1) "
+interval = 60
+token = "..."
+
+[[block]]
+block = "cpu"
+format = " CPU: $barchart $utilization "
+interval = 2
+info_cpu = 20
+warning_cpu = 50
+critical_cpu = 90
+
+[[block]]
+block = "temperature"
+format = " $icon $max max "
+format_alt = " $icon $min min, $max max, $average avg "
+interval = 2
+chip = "*-isa-*"
+
+[[block]]
+block = "disk_space"
+path = "/"
+info_type = "available"
+alert_unit = "GB"
+interval = 20
+warning = 20.0
+alert = 10.0
+format = " $icon root: $available.eng(w:2) "
+
+[[block]]
+block = "memory"
+format = " $icon $mem_total_used "
+format_alt = " $icon_swap $swap_used_percents.eng(w:2) "
+
+[[block]]
+block = "sound"
+[[block.click]]
+button = "left"
+cmd = "pavucontrol"
+
+[[block]]
+block = "battery"
+format = " $percentage {$time_remaining.dur(hms:true, min_unit:m) |}"
+
+#[[block]]
+#block = "vpn"
+#driver = "anyconnect"
+#interval = 10
+#format_connected = "VPN: $icon "
+#format_disconnected = "VPN: $icon "
+#state_connected = "good"
+#state_disconnected = "warning"
+
+[[block]]
+block = "uptime"
+
+[[block]]
+block = "backlight"
+device = "intel_backlight"
+
+[[block]]
+block = "keyboard_layout"
+driver = "localebus"
+
+[[block]]
+block = "time"
+interval = 5
+format = " $timestamp.datetime(f:'%a %d/%m %R') "
