@@ -1,2 +1,2 @@
-arch:
-	@bash ./install.sh arch
+dotfiles:
+	@bash ./install.sh

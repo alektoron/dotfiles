@@ -1,0 +1,10 @@
+zsh
+alacritty
+i3
+i3status-rust
+ly
+tmux
+waybar
+hypr
+xmonad
+xmobar
